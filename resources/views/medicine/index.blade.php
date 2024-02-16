@@ -39,15 +39,21 @@
 
    <div class="row">
       @foreach($result as $d)
-      <div class="col-md-3" style='text-align: center; border: 1px solid #999; margin:5px;
-              padding:5px; border-radius:10px; height: 270px;'>
-          <img src="{{asset('assets/images/'.$d->image) }}"
-           height="160px"><br>
-           <a href="/medicines/{{$d->id}}">
-              <b>{{$d->name}}</b> <br>
-              <p>{{$d->form}}</p>
-          </a>
-      </div>
+        <div class="col-sm-4">
+          <div class="card text-center">
+            
+            <div class="card-body">
+              <img src="{{asset('assets/images/'.$d->image) }}" width="200px" height="200px"><br>
+
+                <a href="/medicines/{{$d->id}}">
+                    <b>{{$d->name}}</b> <br>
+                    <p>{{$d->form}}</p>
+                </a>
+            </div>
+              
+          </div>
+        </div>
+          
       @endforeach
     </div>
 </div>

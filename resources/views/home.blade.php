@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="card-body">
-                        <img src="{{ asset('assets/images/'.$data->image) }}" class="rounded" width="200px" height="200px">
+                        <img src="{{ asset('assets/images/'.$data->image) }}" class="rounded" width="100%" height="200px">
 
                         <p class="text-muted">{{ $data->description }}</p>
                       
