@@ -39,6 +39,7 @@ Route::resource('categories','CategoryController')->middleware(['auth']);
 Route::get('report/listmedicine/{id}','CategoryController@showlist');
 
 Route::get('report/listExpensiveMedicine','MedicineController@showMaxMedicine');
+Route::post('report/history/medicine','TransactionController@showHistoryMedicine')->name('transaction.history');
 
 // Route::get('/ceklayout', function () {
 //     return view('layout.conquer');

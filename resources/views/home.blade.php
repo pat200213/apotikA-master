@@ -27,6 +27,12 @@
         </div>
     @endif
 
+    @if(session('error'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div class="row justify-content-center">
         @foreach($list_medicines as $data)
             <div class="col-md-4 mb-3">

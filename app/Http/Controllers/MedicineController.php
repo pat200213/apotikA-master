@@ -217,19 +217,20 @@ class MedicineController extends Controller
     }
 
     public function showMaxMedicine()
-    {
-       
-        $result=Medicine::select('medicines.name' ,'categories.category_name', 
-                    DB::raw('sum(medicines.price) as total'))
-                        ->join('categories', 'medicines.category_id', '=', 'categories.id')
-                        ->groupBy('medicines.name', 'categories.category_name')
-                        ->orderBy('total', 'desc')
-                        ->take(1)
-                        ->get();
-                    
+    {               
         $medicine_per_category = Category::all();
+
+        $result = Medicine::showExpensiveMedicine($medicine_per_category);
+
+        $data = Medicine::join('transactions as t', 'medicines.id', '=', 't.medicine_id')
+                            ->where('t.status', 1)
+                            ->groupBy('t.medicine_id')
+                            ->select('medicines.*',DB::raw('sum(t.amount) as total'))
+                            ->orderBy('total', 'DESC')
+                            ->take(5)
+                            ->get();
         
-        return view('report.list_expensive_medicine', compact('result', 'medicine_per_category'));
+        return view('report.list_expensive_medicine', compact('result', 'medicine_per_category', 'data'));
     
     }
 
@@ -346,6 +347,11 @@ class MedicineController extends Controller
     }
 
     public function addToCart(Request $request){
+        if(Auth::user()->roles != "customer"){
+           
+            return redirect()->route('dashboard')->with('error','Sorry, you\'re not supposing to buy this medicine.');
+        }        
+
         $medicine = Medicine::find($request->id);
         $customer = Auth::user()->id;
         $today = Carbon::now()->format('Y-m-d');

@@ -190,4 +190,18 @@ class TransactionController extends Controller
             'msg'=>view('transaction.showmodal',compact('data'))->render()
         ),200);
     }
+
+    public function showHistoryMedicine(Request $request){
+        $medicine = Medicine::find($request->myid);
+
+        $data = Transaction::where('medicine_id', $request->myid)
+                                ->where('status', 1)
+                                ->get();
+        
+        return response()->json(array(
+            'status'=>'oke',
+            
+            'msg'=>view('report.history_purchase',compact('data', 'medicine'))->render()
+        ),200);
+    }
 }

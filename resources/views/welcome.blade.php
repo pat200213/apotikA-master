@@ -25,6 +25,12 @@
             {{ session('success') }}
         </div>
     @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif
   
     <div class="page-bar">
         <ul class="page-breadcrumb">
@@ -79,7 +85,7 @@
     </div>
 
     
-    <div class="modal fade" id="disclaimer" tabindex="-1" role="basic" aria-hidden="true">
+        <div class="modal fade" id="disclaimer" tabindex="-1" role="basic" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
