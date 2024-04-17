@@ -36,7 +36,7 @@
       <tr>
         <td>{{$d['medicines_name']}}</td>
         <td>{{$d['category_name']}}</td>
-        <td>Rp {{$d['price']}}</td>
+        <td>Rp {{ number_format($d['price'], 2, ',', '.') }}</td>
       </tr>
     
     @endforeach
@@ -45,6 +45,9 @@
   </table>
 <br>
   <h2>Most Selling Medicine</h2>
+  <a href="{{ route('report.pdf') }}" class="btn btn-sm btn-danger" target="_blank">
+    <i class="fa fa-print"></i> PDF
+  </a>
 
   <table class="table">
     <thead>

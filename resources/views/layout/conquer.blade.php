@@ -200,7 +200,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN FOOTER -->
 <div class="footer">
 	<div class="footer-inner">
-		 2022 &copy; Apotik A.
+		 2024 &copy; Drugstore.
 	</div>
 	<div class="footer-tools">
 		<span class="go-top">

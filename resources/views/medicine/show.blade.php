@@ -158,7 +158,7 @@
     </tr>
     <tr>
         <td>Price (IDR)</td>
-        <td id='td_harga'>{{$data->price}}</td>
+        <td id='td_harga'>{{ number_format($data->price, 2, ',', '.') }}</td>
     </tr>
     <tr>
         <td>Available Stock</td>

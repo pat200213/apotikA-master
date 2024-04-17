@@ -37,11 +37,11 @@
                      </div>
                 </div>
             </td>
-            <td data-th="Price">{{$details['price']}}</td>
+            <td data-th="Price">{{ number_format($details['price'], 2, ',', '.') }}</td>
             <td data-th="Quantity">
                     {{$details['quantity']}}
             </td>
-            <td data-th="Subtotal" class="text-center">{{$details['price']*$details['quantity']}}</td>
+            <td data-th="Subtotal" class="text-center">{{ number_format($details['price']*$details['quantity'], 2, ',', '.') }}</td>
         </tr>
         @endforeach
         @endif
@@ -54,7 +54,7 @@
            
             <td colspan='1' style="text-align:right">Total : </td>
           
-            <td class="text-center"><strong>{{$tot}}</strong></td>
+            <td class="text-center"><strong>{{ number_format($tot, 2, ',', '.')}}</strong></td>
 
         </tr>
        

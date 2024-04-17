@@ -45,7 +45,7 @@
                     <td>{{$d->name}}</td>
                     <td>{{$d->buyer->name}}</td>
                     <td>{{$d->transaction_date}}</td>
-                    <td>{{$d->sub_total}}</td>
+                    <td>{{ number_format($d->sub_total, 2, ',', '.')}}</td>
                     <td>
                         <a class='btn btn-sm btn-info' data-toggle='modal' data-target='#basic'
                             onclick="getdetaildata('{{$d->medicine_id}}', '{{$d->transaction_date}}', '{{$d->customer_id}}')">More Detail</a>

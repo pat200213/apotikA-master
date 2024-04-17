@@ -59,6 +59,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('transaction/changeAmount','TransactionController@UpdateAmount')->name('transaction.changeAmount');
 
     Route::post('transaction/delete','TransactionController@deleteMedicine')->name('transaction.deleteItems');
+
+    Route::get('report/print', 'TransactionController@exportToPdf')->name('report.pdf');
 });
 
 Route::middleware(['auth'])->group(function(){

@@ -17,7 +17,7 @@
         @foreach($data as $d)
             <tr>
                 <td id='td_name'>{{$d->amount}}</td>
-                <td id='td_name'>{{$d->sub_total}}</td>
+                <td id='td_name'>{{ number_format($d->sub_total, 2, ',', '.') }}</td>
                 <td id='td_name'>{{ date('d-M-y H:i', strtotime($d->transaction_date)) }}</td>
             </tr>
         @endforeach

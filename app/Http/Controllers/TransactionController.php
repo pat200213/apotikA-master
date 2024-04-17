@@ -7,6 +7,8 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Auth;
 use App\Medicine;
+use PDF;
+
 
 class TransactionController extends Controller
 {
@@ -203,5 +205,17 @@ class TransactionController extends Controller
             
             'msg'=>view('report.history_purchase',compact('data', 'medicine'))->render()
         ),200);
+    }
+
+    public function exportToPdf()
+    {
+        $result = Transaction::join('medicines as m', 'm.id', '=', 'transactions.medicine_id')
+                    ->join('users as u', 'customer_id', '=', 'u.id')
+                    ->select("u.name as customer", "transactions.*", "m.name as product")
+                    ->get();
+ 
+        $pdf = PDF::loadView('report.pdf', ['data'=>$result] );
+        
+        return $pdf->download('sales_report_drugstore.pdf');
     }
 }

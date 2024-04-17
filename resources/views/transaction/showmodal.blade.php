@@ -37,7 +37,7 @@
                         <td>Sub Total</td>
                         <td>
                             
-                            <span>Rp {{$data->sub_total}}</span>
+                            <span>Rp {{ number_format($data->sub_total, 2, ',', '.')}}</span>
                         </td>
                     </tr>
                     

@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="card-footer bg-transparent border-0 d-flex justify-content-between align-items-center">
-                        <span class="text-primary font-weight-bold">Rp {{ $data->price }}</span>
+                        <span class="text-primary font-weight-bold">Rp {{ number_format($data->price, 2, ',', '.') }}</span>
                         <span class="font-weight-bold {{ $data->stock == 0 ? 'text-muted':'' }}">Stock: {{ $data->stock }}</span>
                     </div>
                 </div>
@@ -85,11 +85,11 @@
                                     <td id='td_category'>{{$data->category->category_name}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Harga</td>
-                                    <td id='td_harga'>{{$data->price}}</td>
+                                    <td>Price</td>
+                                    <td id='td_harga'>Rp {{ number_format($data->price, 2, ',', '.')}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Foto</td>
+                                    <td>Photo</td>
                                     <td>
                                     <a id='td_a' data-target="#detail_{{$data->id}}" data-toggle="modal">
                                         <img id='td_foto' src="{{asset('assets/images/'.$data->image) }}" class="rounded" width="250px" height="250px"/>

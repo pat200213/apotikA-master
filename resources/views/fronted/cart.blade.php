@@ -87,7 +87,7 @@
                                     <button class="btn btn-default" onclick="updateCounter('increase','{{$cart->medicine_id}}')">+</button>
                                 </div>
                                 <div id="sub_total_{{$cart->medicine_id}}" class="col-sm-3">
-                                    Rp {{ $cart->sub_total }} 
+                                    Rp {{ number_format($cart->sub_total, 0, ',', '.') }} 
                                     <button class="btn btn-danger btn-sm ml-2" onclick="deleteItems({{$cart->medicine_id}})">&times;</button>
                                 </div>
                             </div>
@@ -109,22 +109,22 @@
                 <hr>
                 <div class="row px-3 py-2 mb-0">
                     <div class="col" style="padding-left:0;">Sub Total</div>
-                    <div class="col text-right">Rp {{$total}}</div>
+                    <div class="col text-right">Rp {{ number_format($total, 0, ',', '.')}}</div>
                 </div>
 
                 <div class="row px-3 py-2 small text-muted mb-0">
                     <div class="col" style="padding-left:0;">Delivery Cost</div>
-                    <div class="col text-right">Rp 0</div>
+                    <div class="col text-right">Rp {{number_format(0, 0, ',', '.')}}</div>
                 </div>
 
                 <div class="row px-3 py-2 small text-muted">
                     <div class="col" style="padding-left:0;">TAX</div>
-                    <div class="col text-right">Rp 0</div>
+                    <div class="col text-right">Rp {{number_format(0, 0, ',', '.')}}</div>
                 </div>
                 <hr>
                 <div class="row mb-3 px-3" >
                     <div class="col pl-0">TOTAL PRICE</div>
-                    <div class="col text-right">Rp {{$total}}</div>
+                    <div class="col text-right">Rp {{ number_format($total, 0, ',', '.')}}</div>
                 </div>
 
             </div>
